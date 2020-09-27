@@ -1,0 +1,36 @@
+{% macro displayBlogs(blogs_list)%}
+    {%for blog in blogs_list%}
+       
+<div class="container" style="font-family: 'Cinzel', serif;">
+
+        <div class="row">
+            <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+            <div class="col-md-4"style="font-family: 'Cinzel', serif;font-size:25px">
+                       
+            
+                <h4>{{blog.blog_title}}</h4>
+                <p>{{blog.blog_content| truncate}}</p>
+                <p>Written by:  {{blog.user.username}}</p>
+
+                <a href="/blog/{{blog.id}}" class="btn btn-primary  pull-right color:white">Add comment</a> </p>
+                <a href="/edit/blog/{{blog.id}}" class="btn btn-primary pull-right">Edit blogpost</a>
+                <a href="/delete_blog/{{blog.id}}" class="btn btn-primary pull-right" style="margin-bottom:60px;">Delete</a>
+            </div>
+           
+            
+                        
+            
+        </div > 
+</div>
+    {%endfor%}
+{%endmacro%}
+
+
+{%macro displayComments(comments_list)%}
+    {%for comment in comments_list%}
+        <div class="col-md-12">
+            <h5>{{comment.user.username}} commented</h5>
+            <p>{{comment.comment}}</p>
+        </div>
+    {%endfor%}
+{%endmacro%}

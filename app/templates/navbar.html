@@ -1,0 +1,46 @@
+<style>
+  
+
+  
+</style>
+<div class="container-fluid">
+<div class="jumbotron text-center" style="background-color:black;">
+  
+      <div class="navbar-header" style="color:azure">
+        <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+
+        <h1 class="text-center"style="
+        font-family: 'Julius Sans One', sans-serif;margin-left:120px"> TEDnotXBlogs</h1>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+      </div>
+      <div class="navbar-collapse collapse" style="color:aliceblue;">
+        <ul class="nav navbar-nav" style="position:absolute;margin-top: 160px;color:aliceblue;">
+          <li><a href="/">Home</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          {% if current_user.is_authenticated %}
+          <li ><a href="{{url_for('main.new_blog')}}">Add Blog</a></li>
+          <li class="dropdown"><a href="#"  data-toggle="dropdown" role="button">{{current_user.username|
+              capitalize}} </a>
+            
+              <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+             
+            </ul>
+          </li>
+          <li><a href="{{url_for('auth.logout')}}">Check out</a></li>
+          {% else %}
+          <li><a href="{{url_for('auth.login')}}">SignIn</a></li>
+          <li><a href="{{url_for('main.subscribe')}}">SUBSCRIBE</a></li>
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

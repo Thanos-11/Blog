@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+<!-- Content block -->
+
+{%block content%}
+<style>
+  @media screen and (max-width: 1024px) {
+
+    
+  }
+</style>
+
+<body>
+  <div class="col-md-12">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+      <h1 style="text-align:center;font-family: 'Cinzel', serif;">See what people are saying/h1>
+    <div class="container">
+      <div class="jumbotron" style="background-color:rgb(235, 211, 181);       
+        border-radius: 50%;
+        border-right: 3px solid #d8f0f3;
+        border-bottom: 3px solid #dceef0;
+        text-align: center;
+        height: 100%;
+        width: 1;
+        margin-bottom: 3%;">
+        <br>
+        <br>
+        
+        <p>{{ quote.quote }}</p>
+        <h2>{{ quote.author }}</h2>
+        <h3>{{ quote.id }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital@1&display=swap" rel="stylesheet">
+    <h2 style="font-family: 'Courier Prime', monospace;">My personal blog motto</h2>
+    <p style="font-family: 'Courier Prime', monospace;font-size:30px;">In this Blog page you can share your thoughts with other people or ideas.
+    you can also see random quotes that can help you get that inspiration or insight to spark that thought you have.
+    </p>
+  </div>
+  <div class="col-md-4">
+    {{macro.displayBlogs(blogs)}}
+  </div>
+
+  {%endblock%}
+</body>
+   
