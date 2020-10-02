@@ -2,6 +2,7 @@ import os
 
 class Config:
 
+    SQLALCHEMY_TRACK_MODIFICATIONS = False  
     QUOTES_API_BASE_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
     SECRET_KEY =('blogrhymeswithjog')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://thanos:qwerty@localhost/personalblog'
@@ -18,8 +19,9 @@ class Config:
     print(MAIL_USERNAME)
     
 class ProdConfig(Config):
-    pass
-#     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+
+    
+     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 # class TestConfig(Config):
 #     pass
 #     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://thanos:qwerty@localhost/personalblog_test'
